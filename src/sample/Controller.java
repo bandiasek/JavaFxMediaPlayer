@@ -1,13 +1,15 @@
 package sample;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Slider;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.media.Media;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML private MediaView mediaView;
+    @FXML private Slider volumeSlider;
     private MediaPlayer mediaPlayer;
     private Media media;
 
@@ -28,6 +31,15 @@ public class Controller implements Initializable {
         DoubleProperty height =mediaView.fitHeightProperty();
         width.bind(Bindings.selectDouble(mediaView.sceneProperty(), "width"));
         height.bind(Bindings.selectDouble(mediaView.sceneProperty(), "height"));
+        volumeSlider.setValue(mediaPlayer.getVolume() *100);
+        volumeSlider.valueProperty().addListener(new InvalidationListener() {
+
+            @Override
+            public void invalidated(Observable observable) {
+                mediaPlayer.setVolume(volumeSlider.getValue() /100);
+                }
+            }
+        );
     }
 
     public void play(javafx.event.ActionEvent event){
