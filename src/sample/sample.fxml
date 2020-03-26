@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.media.*?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <center>
       <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#play" text="Play" />
+            <Button mnemonicParsing="false" onAction="#pause" text="Pause" />
+            <Button mnemonicParsing="false" onAction="#reload" text="Reload" />
+            <Button mnemonicParsing="false" onAction="#fast" text="Faster" />
+            <Button mnemonicParsing="false" onAction="#slow" text="Slower" />
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
