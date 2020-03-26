@@ -16,6 +16,7 @@
             <Button mnemonicParsing="false" onAction="#reload" text="Reload" />
             <Button mnemonicParsing="false" onAction="#fast" text="Faster" />
             <Button mnemonicParsing="false" onAction="#slow" text="Slower" />
+            <Slider fx:id="volumeSlider" />
          </children>
       </HBox>
    </bottom>
